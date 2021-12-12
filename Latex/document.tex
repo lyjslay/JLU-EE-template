@@ -1,0 +1,162 @@
+% !TEX program = xelatex
+\documentclass[openany,oneside]{book}
+
+\usepackage{jluthesisUTF8}
+%\usepackage{gbt7714}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{pgf}
+\usepackage{booktabs}
+
+%\usepackage{cite}
+\usetikzlibrary{arrows}
+\usepackage{xeCJK}
+
+
+
+
+
+
+
+\begin{document}
+
+\frontmatter
+\sloppy % 解决中英文混排的断行问题，会加入间距，但不会影响断行 ????
+
+% 手动在长标题中利用 \par 输入断行，
+\ctitle{中文标题}
+\etitle{English Titile}
+% 论文 内容提要
+\cthesissummary{
+    中文摘要
+}
+% 关键词
+\ckeywords{中文关键词}
+
+\ethesissummary {
+    English Abstract.
+}
+\ekeywords{English,Keywords}
+
+%生成原创性声明和摘要
+\makecover
+
+\pagenumbering{Roman} 
+%\pdfbookmark[0]{目~~~~录}{contents}
+\tableofcontents
+{\xiaosi}
+%{\fontsize \fontsize{12.05pt}{14.45pt}\selectfont}
+% 清除目录后面空页的页眉和页脚
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+
+
+%%% 正文
+\mainmatter
+\defaultfont                        % 正文使用默认字体，小四，宋体
+
+\chapter{绪论}
+\section{研究背景及意义}
+
+研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。\par
+研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。研究背景及意义。
+
+\section{研究现状及挑战}
+
+研究现状及挑战。
+
+\section{研究内容与论文结构}
+
+研究内容与论文结构。
+
+
+\chapter{基本使用方法}
+
+\section{公式}
+
+插入公式，如\ref{equ:test}所示：
+\begin{equation}
+	\alpha = \int  \beta \cdot \gamma 
+	\label{equ:test}
+\end{equation}
+
+
+\section{图片}
+
+插入图片，如图\ref{fig:test}所示：
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/jlu}
+	\caption{示例图片}
+	\label{fig:test}
+\end{figure}
+
+
+\section{表格}
+
+插入三线表，如表\ref{tab:test}所示，可使用Excel2LaTeX插件自动生成代码：
+\begin{table}[htb]{
+    \centering
+    %\setlength{\belowcaptionskip}{1ex}
+    \setlength{\belowcaptionskip}{1ex}
+    \caption{示例表格}
+    \label{tab:test}
+    \setlength{\tabcolsep}{8mm}
+    
+    \begin{tabular}{lcccr}
+        \toprule
+        AA & BB & CC & DD & EE \\ 
+        \midrule
+        qwd & asc & asfs & asdf & fdhb \\ 
+        fdgnggf  & bfgd & sggr & sdg45 & fdb45we \\
+        \bottomrule
+    \end{tabular}\\
+}
+\end{table}
+
+
+
+\chapter{一级标题}
+
+一级标题
+
+\section{二级标题}
+
+二级标题
+
+\subsection{三级标题}
+
+三级标题
+
+%最后设置格式，插入参考文献。
+\defaultfont
+\bibliographystyle{gbt7714-2005}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{document}
+%插入致谢
+\chapter*{致 \qquad 谢}
+\addcontentsline{toc}{chapter}{致谢}
+\thispagestyle{empty}
+感谢党和国家！
+\chapter*{本科期间发表论文和科研情况}
+None
+\addcontentsline{toc}{chapter}{本科期间发表论文和科研情况}
+None
+\thispagestyle{empty}
+
+...
+
+\end{document}
